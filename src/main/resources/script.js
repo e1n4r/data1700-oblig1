@@ -52,11 +52,11 @@ function filmsForLoop(isShowTicketSection){
 }
 //Fixes singular/plural grammar in the form
 function getTicketText(numberOfTickets){
-    if (numberOfTickets>1){
-        return "tickets";
+    if (numberOfTickets===1){
+        return " ticket";
     }
     else{
-        return "ticket";
+        return " tickets";
     }
 }
 //function that the number of ticket for each movie
@@ -90,7 +90,7 @@ function buyTicket(){
         idgenerator ++; //Id-generator increases to ensure no duplicate id's
         ticketText = getTicketText(ticket.numberoftickets); //ticketText is updated with the number of tickets the user has bought
         tickets.push(ticket); //The object is then added to the array containing all tickets
-        findElement(`${ticket.film.toLowerCase()}`,false).insertAdjacentHTML("beforeend",`<li id="${ticket.ticketid}">${ticket.firstname} ${ticket.lastname} has ${ticket.numberoftickets} ticket</li>`); //Adds an li-item of the purchase to the section that shows all pruchases
+        findElement(`${ticket.film.toLowerCase()}`,false).insertAdjacentHTML("beforeend",`<li id="${ticket.ticketid}">${ticket.firstname} ${ticket.lastname} has ${ticket.numberoftickets}${ticketText}</li>`); //Adds an li-item of the purchase to the section that shows all purchases
         updateNumberofTickets(ticket.film.toLowerCase());
     }
 }
