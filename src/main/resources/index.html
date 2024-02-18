@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer src="script.js"></script> <!-- Defer tells the script to not run before the html is loaded -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Bestilling av kinobiletter</h1>
+<form>
+    <div>
+        <label for="films">Velg film </label>
+        <select id="films">
+            <option disabled hidden selected>Velg film her</option>
+        </select>
+    </div>
+    <div id="numberdiv">
+        <label for="number">Antall </label>
+        <input type="text" id="number">
+    </div>
+    <div>
+        <label for="firstname">Fornavn </label>
+        <input type="text" id="firstname">
+    </div>
+    <div>
+        <label for="lastname">Etternavn </label>
+        <input type="text" id="lastname">
+    </div>
+    <div>
+        <label for="tlf">Telefonnr </label>
+        <input type="text" id="tlf">
+    </div>
+    <div>
+        <label for="email">Epost </label>
+        <input type="text" id="email">
+    </div>
+</form>
+
+<button id="buy" onclick="buyTicket()">Kjøp billett</button>
+<h2>Alle billetter</h2>
+
+<div id="tickets">
+
+</div>
+<button id="delete" onclick="deleteTickets()">Slett alle billettene</button>
+</body>
+</html>
