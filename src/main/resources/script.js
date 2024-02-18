@@ -40,7 +40,7 @@ function filmsForLoop(isShowTicketSection){
     for (let film of films){
         //If true, the loop prints out the div where all the tickets are shown with all movies in the array
         if (isShowTicketSection){
-            findElement("tickets",false).insertAdjacentHTML("beforeend",`<div id="${film.toLowerCase()}"><ul><h3>${film} (<span id="${film.toLowerCase()}tickets">0 </span>${ticketText})</h3></ul></div>`);
+            findElement("tickets",false).insertAdjacentHTML("beforeend",`<div id="${film.toLowerCase()}"><ul><h3>${film} (<span id="${film.toLowerCase()}tickets">0${ticketText}</span>)</h3></ul></div>`);
         }
         //If false, the loop fills out the dropdown menu where you choose which film to attend with the films from the array
         else{
@@ -52,7 +52,7 @@ function filmsForLoop(isShowTicketSection){
 }
 //Fixes singular/plural grammar in the form
 function getTicketText(numberOfTickets){
-    if (numberOfTickets===1){
+    if (numberOfTickets==1){
         return " ticket";
     }
     else{
@@ -65,7 +65,8 @@ function updateNumberofTickets(film, isDelete=false){
     if (!isDelete){
         let ticketCounter = parseInt(findElement(`${film}tickets`,false).innerText);    //ticketCounter is set to the number of tickets the relevant film had before the purchase
         ticketCounter += parseInt(tickets[tickets.length-1].numberoftickets);       //Then the number of tickets purchased is being added to the number
-        findElement(`${film}tickets`,false).innerText = ticketCounter.toString();   //Updates the form with the correct number of tickets
+        findElement(`${film}tickets`,false).innerHTML=`${ticketCounter}${getTicketText(ticketCounter)}`;
+            //innerText = ticketCounter.toString() + getTicketText(ticketCounter);   //Updates the form with the correct number of tickets
     }
     //This only runs when all tickets are deleted
     else{
