@@ -1,0 +1,25 @@
+label{
+    display: inline-block;
+    width: 70px;
+}
+form div{
+    padding: 5px;
+}
+#numberdiv{
+    padding: 30px 5px 30px 5px;
+}
+
+#number{
+    width: 20px;
+}
+
+#tickets {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    list-style-type: none;
+}
+
+#delete{
+    margin-top: 30px;
+}
